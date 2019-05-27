@@ -6,25 +6,27 @@
 //  Copyright © 2019 Sherry R.Z. All rights reserved.
 //
 
-#include <iostream>
 
-int count = 0;
+#include <iostream>
+#include <vector>  //for std::vector
+#include <string>  //for std::string
+using namespace std;
+
 void reverse_input(){
-    int n = 0;
-    if (std:: cin >> n) {
-        count++;
-        reverse_input();
-        std::cout << n;
-    } else {
-        std::cout << "You typed in " << count << " numbers in total." << std::endl;
+    int n;
+    vector<int> data;
+    cout << "Please input: " << endl;
+    while(cin >> n){
+        data.push_back(n);
     }
+    cout << "Reversed orders:" << endl;
+    for (int i = int(data.size()) - 1; i >= 0; i--){
+        cout << data.at(i) << ": " << data.at(i) + int(data.size()) << endl;
+    }
+    cout << "total number: " << int(data.size()) << endl;
 }
 
 int main(int argc, const char * argv[]) {
-    std::cout<< "Please enter your numbers: "<< std::endl;
-    std::cout<< "(enter next number, press ENTER,"<< std::endl;
-    std::cout<< "to stop, please type 'stop')"<< std::endl;
     reverse_input();
-    std::cout << std::endl;
     return 0;
 }
