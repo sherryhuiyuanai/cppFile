@@ -31,10 +31,10 @@
 using namespace std;
 
 int reverse(int x) {
-    int n = abs(x);
     if(int(x) > int(pow(2, 31) - 1) || int(x) < int(-pow(2, 31))){
         return 0;
     } else {
+        int n = abs(x);
         int result = 0;
         int residue = 0;
         int i = 0;
