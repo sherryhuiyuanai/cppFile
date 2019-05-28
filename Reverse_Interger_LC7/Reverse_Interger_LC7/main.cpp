@@ -31,15 +31,19 @@
 using namespace std;
 
 int reverse(int x) {
-    if(int(x) > pow(2, 31) - 1 || int(x) < -pow(2, 31)){
+    int n = abs(x);
+    if(int(x) > int(pow(2, 31) - 1) || int(x) < int(-pow(2, 31))){
         return 0;
     } else {
         int result = 0;
         int residue = 0;
-        for(int i = 0; i < 10; i++){
-            residue = abs(x) % int(pow(10, i+1));
+        int i = 0;
+        while(int(abs(x)) / int(pow(10, i)) != 0){
+            residue = n % int(pow(10, i+1));
             result = result * 10 + residue / int(pow(10, i));
+            n = n - residue;
             cout << i+1 << ": " << result << endl;
+            i++;
         }
         result = x >= 0? result: -result;
         return result;
@@ -47,7 +51,7 @@ int reverse(int x) {
 }
 
 int main(int argc, const char * argv[]) {
-    cout << reverse(2147483648) << endl;
-    // cout << (2147483648>pow(2, 31) - 1);
+    cout << reverse(int(pow(2, 31) - 1)) << endl;
+    //cout << 321 / 1000;
     return 0;
 }
