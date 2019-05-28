@@ -33,23 +33,24 @@ using namespace std;
 int reverse(int x) {
     if (int(x) > int(pow(2, 31) - 1) || int(x) < int(-pow(2, 31))) {
         return 0;
-    } else if (int(x) <= int(pow(2, 31) - 1) || int(x) >= int(-pow(2, 31))){
-        int n = abs(x);
-        int result = 0;
-        int residue = 0;
-        int i = 0;
-        while (int(abs(x)) / int(pow(10, i)) != 0){
-            residue = n % int(pow(10, i+1));
+    }
+    int n = abs(x);
+    int result = 0;
+    int residue = 0;
+    int i = 0;
+    while (int(abs(x)) / int(pow(10, i)) != 0){
+        residue = n % int(pow(10, i+1));
+        if(result * 10 + residue / int(pow(10, i)) > pow(2, 31) - 1){
+            return 0;
+        } else {
             result = result * 10 + residue / int(pow(10, i));
             n = n - residue;
             cout << i+1 << ": " << result << endl;
             i++;
         }
-        result = x >= 0? result: -result;
-        return result;
-    } else {
-        return 0;
     }
+    result = x >= 0? result: -result;
+    return result;
 }
 
 int main(int argc, const char * argv[]) {
