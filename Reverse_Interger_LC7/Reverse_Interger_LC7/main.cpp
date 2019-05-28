@@ -31,21 +31,23 @@
 using namespace std;
 
 int reverse(int x) {
-    if(x > pow(2, 31) - 1 || x < -pow(2, 31)){
+    if(int(x) > pow(2, 31) - 1 || int(x) < -pow(2, 31)){
         return 0;
+    } else {
+        int result = 0;
+        int residue = 0;
+        for(int i = 0; i < 10; i++){
+            residue = abs(x) % int(pow(10, i+1));
+            result = result * 10 + residue / int(pow(10, i));
+            cout << i+1 << ": " << result << endl;
+        }
+        result = x >= 0? result: -result;
+        return result;
     }
-    int result = 0;
-    int residue = 0;
-    for(int i = 0; i < 10; i++){
-        residue = abs(x) % int(pow(10, i+1));
-        result = result * 10 + residue / int(pow(10, i));
-        cout << i+1 << ": " << result << endl;
-    }
-    result = x >= 0? result: -result;
-    return result;
 }
 
 int main(int argc, const char * argv[]) {
-    cout << reverse(int(2147483647)) << endl;
+    cout << reverse(2147483648) << endl;
+    // cout << (2147483648>pow(2, 31) - 1);
     return 0;
 }
