@@ -30,22 +30,24 @@
 #include <math.h>
 using namespace std;
 
-int reverse(int x) {
-    if (int(x) > int(pow(2, 31) - 1) || int(x) < int(-pow(2, 31))) {
+long reverse(long x) {
+    if (x > INT_MAX || x < INT_MIN) {
+        // cout << "oppps";
         return 0;
     }
-    int n = abs(x);
-    int result = 0;
-    int residue = 0;
+    long n = abs(x);
+    long result = 0;
+    long residue = 0;
     int i = 0;
-    while (int(abs(x)) / int(pow(10, i)) != 0){
+    while (abs(x) / int(pow(10, i)) != 0){
         residue = n % int(pow(10, i+1));
-        if(result * 10 + residue / int(pow(10, i)) > pow(2, 31) - 1){
+        if(result * 10 + residue / int(pow(10, i))){
+            // cout << "oppps222";
             return 0;
         } else {
             result = result * 10 + residue / int(pow(10, i));
             n = n - residue;
-            cout << i+1 << ": " << result << endl;
+            // cout << i+1 << ": " << result << endl;
             i++;
         }
     }
@@ -54,7 +56,6 @@ int reverse(int x) {
 }
 
 int main(int argc, const char * argv[]) {
-    cout << reverse(2000000003) << endl;
-    //cout << 321 / 1000;
+    cout << reverse(INT_MAX) << endl;
     return 0;
 }
