@@ -15,15 +15,28 @@
  
  It's rarely used in engineering area.
  
+ 
+ Logic:
+ Traverse the array every time to find the current smallest element then put it to the beginning.
+ 
  */
 
 #include <iostream>
+#include <array>
 
+using namespace std;
 
+int *selectionSort(int arr[]){ // can I return an array without using a pointer?
+    
+    return arr;
+}
 
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    int arr [] = {5, 3, 6, 8, 1, 7, 9, 4, 2};
+//    for(int i = 0; i < sizeof(arr); i++){
+//        cout << arr[i];
+//    }
+    cout << sizeof(arr) << endl;
     return 0;
 }
