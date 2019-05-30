@@ -32,7 +32,6 @@ using namespace std;
 
 long reverse(long x) {
     if (x > INT_MAX || x < INT_MIN) {
-        // cout << "oppps";
         return 0;
     }
     long n = abs(x);
@@ -42,12 +41,10 @@ long reverse(long x) {
     while (abs(x) / int(pow(10, i)) != 0){
         residue = n % int(pow(10, i+1));
         if(result * 10 + residue / int(pow(10, i)) > INT_MAX){
-            //cout << "oppps222";
             return 0;
         } else {
             result = result * 10 + residue / int(pow(10, i));
             n = n - residue;
-            // cout << i+1 << ": " << result << endl;
             i++;
         }
     }
