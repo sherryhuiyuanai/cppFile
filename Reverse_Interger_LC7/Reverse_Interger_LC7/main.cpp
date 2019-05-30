@@ -41,8 +41,8 @@ long reverse(long x) {
     int i = 0;
     while (abs(x) / int(pow(10, i)) != 0){
         residue = n % int(pow(10, i+1));
-        if(result * 10 + residue / int(pow(10, i))){
-            // cout << "oppps222";
+        if(result * 10 + residue / int(pow(10, i)) > INT_MAX){
+            //cout << "oppps222";
             return 0;
         } else {
             result = result * 10 + residue / int(pow(10, i));
@@ -56,6 +56,6 @@ long reverse(long x) {
 }
 
 int main(int argc, const char * argv[]) {
-    cout << reverse(INT_MAX) << endl;
+    cout << reverse(123) << endl;
     return 0;
 }
