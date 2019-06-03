@@ -22,21 +22,33 @@
  */
 
 #include <iostream>
-#include <array>
+//#include <array>
 
 using namespace std;
 
-int *selectionSort(int arr[]){ // can I return an array without using a pointer?
-    
-    return arr;
+void selectionSort(int arr[]){ // can I return an array without using a pointer?
+    for(int i = 0; i < sizeof(*arr)[]/sizeof((*arr)[0]); i++){
+        // traverse the array to find the current min value
+        // exchange this value with the index[i]
+        
+    }
+    for(int i = 0; i < sizeof(*arr)[]/sizeof((*arr)[0]); i++){
+        cout << (*arr)[i] << " ";
+    }
 }
 
 
 int main(int argc, const char * argv[]) {
+    // test case
     int arr [] = {5, 3, 6, 8, 1, 7, 9, 4, 2};
-//    for(int i = 0; i < sizeof(arr); i++){
-//        cout << arr[i];
-//    }
-    cout << sizeof(arr)/sizeof(arr[0]) << endl;
+    // output initial array
+    for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++){
+        cout << arr[i] << " ";
+    }
+    // output array
+    cout << "\n";
+    selectionSort(arr);
+    cout << "test";
+    // cout << sizeof(arr)/sizeof(arr[0]) << endl;
     return 0;
 }
