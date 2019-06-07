@@ -27,13 +27,23 @@
 using namespace std;
 
 void selectionSort(int arr[]){ // can I return an array without using a pointer?
-    for(int i = 0; i < sizeof(*arr)[]/sizeof((*arr)[0]); i++){
+    
+    int indexMin = 0;
+    int temp;
+    for(int i = 0; i < sizeof(arr)/sizeof(arr)[0]; i++){
         // traverse the array to find the current min value
         // exchange this value with the index[i]
+        if (arr[i] < indexMin) {
+            temp = arr[indexMin];
+            arr[indexMin] = arr[i];
+            
+        }
         
     }
-    for(int i = 0; i < sizeof(*arr)[]/sizeof((*arr)[0]); i++){
-        cout << (*arr)[i] << " ";
+    
+    // output the sorted array
+    for(int i = 0; i < sizeof(arr)/sizeof(arr)[0]; i++){
+        cout << arr[i] << " ";
     }
 }
 
@@ -49,6 +59,10 @@ int main(int argc, const char * argv[]) {
     cout << "\n";
     selectionSort(arr);
     cout << "test";
-    // cout << sizeof(arr)/sizeof(arr[0]) << endl;
+    cout << sizeof(arr)/sizeof(arr[0]) << endl;
+    
+//    string myArray[] = { "Example1", "Example2", "Example3", "Example4" };
+//    int size_of_array = size(myArray);
+//    cout << size_of_array << endl;
     return 0;
 }
